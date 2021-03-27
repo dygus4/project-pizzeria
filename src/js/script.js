@@ -87,6 +87,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -157,8 +158,11 @@
           const option = param.options[optionId];
           console.log(optionId, option);
           //Jeśli   (istnieje parametr paramId w formData) oraz  (istnieje parametr paramId w formData który zawiera on optionId) to
+
           
-          if (formData[paramId] && formData[paramId].includes(optionId)) {
+
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          if (optionSelected) {
             //jeśli jest niedomyślna a jest wybrana to dodaj koszt do ceny.
             if (!option.default){
               price = price + option.price;
@@ -167,7 +171,9 @@
           }else if (option.default){
             price = price - option.price;
           }
+          
         }
+
       }
 
       // update calculated price in the HTML
