@@ -64,7 +64,7 @@
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
       thisProduct.processOrder();
-      console.log('new Product:', thisProduct);
+      //console.log('new Product:', thisProduct);
       
     }
     renderInMenu(){
@@ -117,7 +117,7 @@
     }
     initOrderForm(){
       const thisProduct = this;
-      console.log(this.initOrderForm);
+      //console.log(this.initOrderForm);
 
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -141,7 +141,7 @@
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);
+      //console.log('formData', formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -150,18 +150,19 @@
       for(let paramId in thisProduct.data.params) {
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
+        //console.log(paramId, param);
 
         // for every option in this category
         for(let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
+          //console.log(optionId, option);
           //Jeśli   (istnieje parametr paramId w formData) oraz  (istnieje parametr paramId w formData który zawiera on optionId) to
 
           
-
+          const optionImage = thisProduct.imageWrapper.querySelector('.'+paramId+'-'+optionId);
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          console.log(optionSelected);
           if (optionSelected) {
             //jeśli jest niedomyślna a jest wybrana to dodaj koszt do ceny.
             if (!option.default){
@@ -171,7 +172,14 @@
           }else if (option.default){
             price = price - option.price;
           }
-          
+          if (optionImage) {
+            if (optionSelected){
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            } else if (!optionSelected) {
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+
+          }
         }
 
       }
@@ -186,7 +194,7 @@
     initMenu: function(){
 
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      //console.log('thisApp.data:', thisApp.data);
 
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
@@ -200,11 +208,11 @@
     },
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
+      //console.log('*** App starting ***');
+      //console.log('thisApp:', thisApp);
+      //console.log('classNames:', classNames);
       console.log('settings:', settings);
-      console.log('templates:', templates);
+      //console.log('templates:', templates);
 
       thisApp.initData();
       thisApp.initMenu();
