@@ -106,9 +106,10 @@
         const activeProducts = document.querySelectorAll(classNames.menuProduct.wrapperActive);
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         for (let activeProduct of activeProducts){
-          if (activeProduct !== thisProduct.element){
+          if (activeProduct !== null){
             activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
           }
+          
         }
         /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
@@ -162,7 +163,7 @@
           
           const optionImage = thisProduct.imageWrapper.querySelector('.'+paramId+'-'+optionId);
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
-          console.log(optionSelected);
+          //console.log(optionSelected);
           if (optionSelected) {
             //jeśli jest niedomyślna a jest wybrana to dodaj koszt do ceny.
             if (!option.default){
@@ -189,7 +190,14 @@
     }
 
   }
+  class AmountWidget{
+    constructor(element){
+      const thisWidget = this;
 
+      console.log('AmountWidget:', thisWidget);
+      console.log('constructor arguments:', element);
+    }
+  }
   const app = {
     initMenu: function(){
 
