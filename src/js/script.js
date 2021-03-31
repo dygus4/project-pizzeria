@@ -234,7 +234,7 @@
       const thisWidget = this;
       thisWidget.input.addEventListener('change', function(event){
         event.preventDefault();
-        thisWidget.setValue();
+        thisWidget.setValue(thisWidget.input.value);
       });
     }
   }
