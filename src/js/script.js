@@ -391,7 +391,7 @@
       //add element to menu
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      thisCart.products.push(menuProduct);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
       console.log('thisCart.products', thisCart.products);
     }
     
@@ -405,8 +405,6 @@
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.price = menuProduct.priceSingle * menuProduct.amount;
       thisCartProduct.params = menuProduct.params;
-
-      
 
       thisCartProduct.getElements(element);
       console.log(thisCartProduct);
