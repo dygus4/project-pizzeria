@@ -406,9 +406,9 @@
       thisCartProduct.price = menuProduct.priceSingle * menuProduct.amount;
       thisCartProduct.params = menuProduct.params;
       thisCartProduct.inputValue =element.querySelector(select.widgets.amount.input);
-
-      thisCartProduct.initAmountWidget();
       thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget();
+      
       console.log(thisCartProduct);
     }
 
