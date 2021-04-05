@@ -99,6 +99,7 @@
       thisProduct.initOrderForm();
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
+      thisProduct.prepareCartProductParams();
       //console.log('new Product:', thisProduct);
       
     }
@@ -155,10 +156,11 @@
 
     initAmountWidget(){
       const thisProduct = this;
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
       thisProduct.amountWidgetElem.addEventListener('updated', function() {
         thisProduct.processOrder();
       });
-      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      
     }
 
     initOrderForm(){
