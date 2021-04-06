@@ -326,7 +326,7 @@
       /* TODO: Add validation */
       if(thisWidget.value !== newValue && !isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax){
         thisWidget.value = newValue;
-        thisWidget.input.value = thisWidget.value;
+        //thisWidget.input.value = thisWidget.value;
         thisWidget.announce();
       }
       
@@ -424,7 +424,7 @@
         thisCart.dom.deliveryFee.innerHTML= 0;
         thisCart.dom.totalPrice.innerHTML = 0;
 
-      }
+      }   
       console.log('totalPrice',thisCart.totalPrice);
       console.log('delifery',thisCart.deliveryFee);
       console.log('subtotal', thisCart.subTotalPrice);
@@ -465,8 +465,9 @@
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
       thisCartProduct.dom.amountWidget.addEventListener('updated', function() {
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
-        thisCartProduct.price = thisCartProduct.amount * thisCartProduct.priceSingle;
+        thisCartProduct.price = thisCartProduct.amountWidget.value * thisCartProduct.priceSingle;
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
+        thisCartProduct.inputValue.innerHTML = thisCartProduct.amount;
       });
       
     }
