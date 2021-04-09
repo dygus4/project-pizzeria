@@ -411,7 +411,7 @@
     sendOrder(){
       const thisCart = this;
       const url = settings.db.url + '/' + settings.db.order;
-
+        
       const payload = {};
       payload.address = thisCart.dom.address.value;
       payload.phone = thisCart.dom.phone.value;
@@ -420,19 +420,19 @@
       payload.totalNumber = thisCart.totalNumber;
       payload.deliveryFee = thisCart.deliveryFee;
       payload.products = [];
-
-      //console.log('payload', payload);
-      for(let prod of thisCart.products) {
+      
+      for(let prod of thisCart.products){
         payload.products.push(prod.getData());
       }
+      
       const options = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       };
-      
+        
       fetch(url, options);
     }
 
@@ -515,15 +515,14 @@
     }
     getData(){
       const thisCartProduct = this;
-
+      
       const productSumary = {
         id: thisCartProduct.id,
-        amount: thisCartProduct.id,
+        amount: thisCartProduct.amount,
         price: thisCartProduct.price,
         priceSingle: thisCartProduct.priceSingle,
         name: thisCartProduct.name,
         params: thisCartProduct.params,
-      
       };
       return productSumary;
     }
