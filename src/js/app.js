@@ -9,6 +9,7 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).childern;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    console.log(thisApp.pages);
     thisApp.activatePage(thisApp.pages[0].id);
 
     
@@ -86,6 +87,7 @@ const app = {
     //console.log('templates:', templates);
     thisApp.initPages();
     thisApp.initData();
+    thisApp.initCart();
     //thisApp.initMenu();
   },
 };
@@ -93,4 +95,4 @@ const app = {
 
 
 app.init();
-app.initCart();
+
