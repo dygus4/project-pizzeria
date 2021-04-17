@@ -1,4 +1,4 @@
-
+/* global Handlebars */
 
 
 export const select = {
