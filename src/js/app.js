@@ -90,13 +90,13 @@ const app = {
         return rawResponce.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
+        //console.log('parsedResponse', parsedResponse);
         //save parsedResponce at thisApp.data.products
         thisApp.data.products = parsedResponse;
         //execute initMenu method
         thisApp.initMenu();
       });
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    //console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
   initCart: function(){
     const thisApp = this;
@@ -116,7 +116,7 @@ const app = {
     //console.log('*** App starting ***');
     //console.log('thisApp:', thisApp);
     //console.log('classNames:', classNames);
-    console.log('settings:', settings);
+    //console.log('settings:', settings);
     //console.log('templates:', templates);
     thisApp.initPages();
     thisApp.initData();
