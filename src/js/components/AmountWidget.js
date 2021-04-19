@@ -10,8 +10,10 @@ class AmountWidget extends BaseWidget{
     
     //thisWidget.setValue(thisWidget.input.value);
     thisWidget.initActions();
+    //console.log(thisWidget.value);
     //console.log('AmountWidget:', thisWidget);
     //console.log('constructor arguments:', element);
+    //thisWidget.renderValue();
   }
   getElements(){
     const thisWidget = this;
@@ -31,6 +33,7 @@ class AmountWidget extends BaseWidget{
     const thisWidget = this;
 
     thisWidget.dom.input.value = thisWidget.value;
+    //console.log(thisWidget.value);
   }
   initActions(){
     const thisWidget = this;
@@ -38,6 +41,7 @@ class AmountWidget extends BaseWidget{
       //event.preventDefault();
       //thisWidget.setValue(thisWidget.dom.input.value);
       thisWidget.value = thisWidget.dom.input.value;
+      console.log(thisWidget.value);
     });
     thisWidget.dom.linkDecrease.addEventListener('click', function(event){
       event.preventDefault();

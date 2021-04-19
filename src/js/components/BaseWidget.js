@@ -1,4 +1,4 @@
-
+ 
 
 class BaseWidget {
   constructor(wrapperElement, initialValue){
@@ -8,6 +8,9 @@ class BaseWidget {
     thisWidget.dom.wrapper = wrapperElement;
 
     thisWidget.correctValue = initialValue;
+    
+    
+    
   }
 
   get value(){

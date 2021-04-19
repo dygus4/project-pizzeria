@@ -39,7 +39,7 @@ class Booking {
     //console.log('getData.params', params);
 
     const urls = {
-      booking:       settings.db.url + '/' + settings.db.booking
+      booking:        settings.db.url + '/' + settings.db.booking
                                      + '?' + params.booking.join('&'),
       eventsCurrent:  settings.db.url + '/' + settings.db.event
                                      + '?' + params.eventsCurrent.join('&'),
@@ -141,7 +141,7 @@ class Booking {
       if(
         !allAvailable
         &&
-        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId) > -1
+        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ){
         table.classList.add(classNames.booking.tableBooked);
       }else {
@@ -174,14 +174,14 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
     thisBooking.dom.wrapper.addEventListener('updated', function(){
+      thisBooking.updateDOM();
+    });
+    thisBooking.dom.peopleAmount.addEventListener('updated', function(){
 
     });
-    //thisBooking.dom.peopleAmount.addEventListener('updated', function(){
+    thisBooking.dom.hoursAmount.addEventListener('updated', function(){
 
-    //});
-    //thisBooking.dom.hoursAmount.addEventListener('updated', function(){
-
-    //});
+    });
   }
 
 }
