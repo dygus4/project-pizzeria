@@ -2,9 +2,10 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 
-const app = {
+export const app = {
   initPages: function(){
     const thisApp = this;
 
@@ -60,6 +61,11 @@ const app = {
     }
     //add class 'active' to matching links, remove from non-matching
 
+  },
+  initHome: function(){
+    const thisApp = this;
+    const homeContainer = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeContainer);
   },
   initBooking: function(){
     const thisApp = this;
@@ -118,10 +124,12 @@ const app = {
     //console.log('classNames:', classNames);
     //console.log('settings:', settings);
     //console.log('templates:', templates);
-    thisApp.initPages();
+    thisApp.initHome();
+    
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initPages();
     //thisApp.initMenu();
   },
 };

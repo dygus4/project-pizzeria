@@ -43,6 +43,12 @@ export const select = {
       input: 'input[type="range"]',
       output: '.output',
     },
+    carousel: '.main-carousel',
+  },
+  home: {
+    options: '.options a',
+    order: '.order-online',
+    book: '.book-table',
   },
   // CODE ADDED START
   cart: {
