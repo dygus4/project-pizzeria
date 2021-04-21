@@ -68,13 +68,13 @@
 
 /*carousel*/
 .flickity-enabled {
-    margin-bottom: 100px;
-  }
+  margin-bottom: 100px;
+}
   
   
 .carousel-cell {
-  width: 100%; 
-  height: 160px; 
+  //width: 100%; 
+  //height: 160px; 
   margin-right: 10px;
 }
 
@@ -84,9 +84,11 @@
   height: 180px;
   margin-right: 30px;
 }
+
 .content {
-    display: inline-flex;
+  display: inline-flex;
 }
+
 .carousel-post {
   h3 {
     margin-bottom: -10px;
@@ -96,14 +98,13 @@
     font-size: 13px;
     margin-right: 20px;
   }
+
   p:nth-child(3){
     font-size: 13px;
     font-style: italic;
   }
 }
-
-
-
+//Galery//
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -114,15 +115,20 @@
   
     .box:hover {
       cursor: pointer;
+
+      img {
+        opacity: 0.5;
+        transition: 0.3s;
+      }
   
     }
-    
+  
     img {
       height: 180px;
       width: 180px;
       object-fit: cover;
     }
-      
+  
     ul {
       list-style-type: none;
     }
@@ -130,13 +136,14 @@
     li {
       color: $color-light;
       display: inline;
-      /*a{
-        text-decoration: none;
-        color: $color-light;
+
+      a {
+        //text-decoration: none;
+        //color: $color-light;
         visibility: hidden;
-        text-decoration: none;
-        display: inline;
-      }*/
+        //text-decoration: none;
+        //display: inline;
+      }
     }
   
     li:hover {
@@ -147,7 +154,7 @@
       }
   
       a:nth-child(2) {
-        color: $color-light;
+        color: $color-dark;
       }
     }
   
