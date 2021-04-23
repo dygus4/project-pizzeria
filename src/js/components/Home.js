@@ -1,4 +1,4 @@
-/*global Flickity*/
+/*global $*/
 
 import {select, templates} from '../settings.js';
 import {app} from '../app.js';
@@ -24,16 +24,27 @@ class Home {
     thisHome.dom.book = thisHome.dom.wrapper.querySelector(select.home.book);
   }
   initWidgets(){
-    const thisHome = this;
 
-    thisHome.element = document.querySelector(select.widgets.carousel);
-    thisHome.flkty = new Flickity(thisHome.element, {
-      cellAlign: 'left',
-      contain: true,
-      autoPlay: 3000,
-      wrapAround: true,
-      prevNextButtons: false,
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      autoplayTimeout:3000,
+      autoplay:true,
+      autoplayHoverPause:true,
+      nav:true,
+      responsive:{
+        0:{
+          items:2
+        },
+        600:{
+          items:2
+        },
+        1000:{
+          items:2
+        }
+      }
     });
+
   }
   goToPage() {
     const thisHome = this;
